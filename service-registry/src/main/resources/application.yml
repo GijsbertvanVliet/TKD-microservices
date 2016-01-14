@@ -1,0 +1,12 @@
+# Name of this application
+spring:
+  application:
+    name: service registry
+
+# Configuration of Eureka, the service registry used
+eureka:
+  client:
+    registerWithEureka: false
+    fetchRegistry: false
+  server:
+    waitTimeInMsWhenSyncEmpty: 0

@@ -1,0 +1,8 @@
+# Name of the service
+spring:
+  application:
+    name: simple-service
+
+  eureka:
+    instance:
+      leaseRenewalIntervalInSeconds: 1
