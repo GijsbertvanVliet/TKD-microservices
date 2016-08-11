@@ -1,0 +1,34 @@
+buildscript {
+  repositories {
+    jcenter()
+  }
+  dependencies {
+    classpath "io.ratpack:ratpack-gradle:1.3.3"
+    classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.0.3"
+  }
+}
+
+apply plugin: "kotlin"
+apply plugin: "io.ratpack.ratpack-java"
+apply plugin: "idea"
+apply plugin: "java"
+compileJava {
+  sourceCompatibility = "1.8"
+  targetCompatibility = "1.8"
+}
+
+repositories {
+  jcenter()
+}
+
+dependencies {
+  compile "org.jetbrains.kotlin:kotlin-gradle-plugin:1.0.3"
+  compile ratpack.dependency("rx")
+  compile "com.fasterxml.jackson.core:jackson-databind:2.6.7"
+  compile "com.fasterxml.jackson.module:jackson-module-kotlin:2.6.7"
+  compile "io.reactivex:rxkotlin:0.55.0"
+  compile "com.ecwid.consul:consul-api:1.1.11"
+  runtime "org.slf4j:slf4j-simple:1.7.12"
+}
+
+mainClassName = "nl.sogyo.tkd.service.catalog.MainKt"
