@@ -1,3 +1,10 @@
 catalog-service/build/*
 catalog-service/.idea/*
 catalog-service/.gradle/*
+
+jersey-template/build/*
+jersey-template/.idea/*
+jersey-template/.gradle/*
+jersey-template/.gitignore
+jersey-template/classes/*
+jersey-template/target/*

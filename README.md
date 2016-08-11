@@ -1,3 +1,3 @@
 # Microservices TKD
 
-Zie de 'case' folder voor de case.
+Zie de ['case'](case/) folder voor de case.
