@@ -8,3 +8,10 @@ jersey-template/.gradle/*
 jersey-template/.gitignore
 jersey-template/classes/*
 jersey-template/target/*
+
+dropwizard-template/build/*
+dropwizard-template/.idea/*
+dropwizard-template/.gradle/*
+dropwizard-template/.gitignore
+dropwizard-template/classes/*
+dropwizard-template/target/*
