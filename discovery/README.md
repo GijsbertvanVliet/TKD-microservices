@@ -1,0 +1,2 @@
+# Discovery client
+* `gradle run`
