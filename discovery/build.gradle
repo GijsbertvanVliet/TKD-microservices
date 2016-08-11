@@ -1,0 +1,19 @@
+apply plugin: "application"
+apply plugin: "idea"
+apply plugin: "java"
+compileJava {
+  sourceCompatibility = "1.8"
+  targetCompatibility = "1.8"
+}
+
+repositories {
+  jcenter()
+}
+
+dependencies {
+  compile "io.reactivex:rxjava:1.1.8"
+  compile "com.ecwid.consul:consul-api:1.1.11"
+  runtime "org.slf4j:slf4j-simple:1.7.12"
+}
+
+mainClassName = "nl.sogyo.tkd.discovery.Example"

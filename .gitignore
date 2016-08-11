@@ -1,3 +1,8 @@
+discovery/build/*
+discovery/.idea/*
+discovery/.gradle/*
+discovery/gradle/*
+
 catalog-service/build/*
 catalog-service/.idea/*
 catalog-service/.gradle/*
