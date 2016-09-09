@@ -34,13 +34,13 @@ public class IntegrationTest {
     client.close();
   }
 
-  @Test
-  public void testHelloWorld() throws Exception {
-    final Optional<String> name = Optional.of("Dr. IntegrationTest");
-    final Saying saying = client.target("http://localhost:" + RULE.getLocalPort() + "/hello-world")
-        .queryParam("name", name.get())
-        .request()
-        .get(Saying.class);
-    assertThat(saying.getContent()).isEqualTo(RULE.getConfiguration().buildTemplate().render(name));
-  }
+//  @Test
+//  public void testHelloWorld() throws Exception {
+//    final Optional<String> name = Optional.of("Dr. IntegrationTest");
+//    final Saying saying = client.target("http://localhost:" + RULE.getLocalPort() + "/hello-world")
+//        .queryParam("name", name.get())
+//        .request()
+//        .get(Saying.class);
+//    assertThat(saying.getContent()).isEqualTo(RULE.getConfiguration().buildTemplate().render(name));
+//  }
 }

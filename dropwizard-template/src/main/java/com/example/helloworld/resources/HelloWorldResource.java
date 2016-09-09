@@ -3,6 +3,10 @@ package com.example.helloworld.resources;
 import com.codahale.metrics.annotation.Timed;
 import com.example.helloworld.api.Saying;
 import com.example.helloworld.core.Template;
+import com.example.helloworld.customer.AddNewCustomer;
+import com.example.helloworld.customer.CustomerObject;
+import com.example.helloworld.customer.ReplaceCustomer;
+import com.example.helloworld.customer.RetrieveCustomer;
 import io.dropwizard.jersey.caching.CacheControl;
 import io.dropwizard.jersey.params.DateTimeParam;
 import org.slf4j.Logger;
@@ -19,7 +23,7 @@ import java.util.Optional;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicLong;
 
-@Path("/hello-world")
+@Path("/customerService")
 @Produces(MediaType.APPLICATION_JSON)
 public class HelloWorldResource {
     private static final Logger LOGGER = LoggerFactory.getLogger(HelloWorldResource.class);
@@ -37,6 +41,29 @@ public class HelloWorldResource {
     @CacheControl(maxAge = 1, maxAgeUnit = TimeUnit.DAYS)
     public Saying sayHello(@QueryParam("name") Optional<String> name) {
         return new Saying(counter.incrementAndGet(), template.render(name));
+    }
+
+    @GET
+    @Path("/getCustomer")
+    @Timed(name = "getcustomer")
+    @CacheControl(maxAge = 1, maxAgeUnit = TimeUnit.DAYS)
+    public CustomerObject getCustomer(@QueryParam("id") Optional<String> customerId) {
+        return RetrieveCustomer.getCustomerByCustomerId(customerId.get());
+    }
+
+    @POST
+    @Path("/addCustomer")
+    @CacheControl(maxAge = 1, maxAgeUnit = TimeUnit.DAYS)
+    public void addCustomer(CustomerObject customer) {
+        AddNewCustomer.addCustomer(customer);
+    }
+
+    @POST
+    @Path("/updateCustomer")
+    @CacheControl(maxAge = 1, maxAgeUnit = TimeUnit.DAYS)
+    public void updateCustomer(CustomerObject customer, @QueryParam("id") Optional<String> customerId) {
+        int locationOfCustomer = RetrieveCustomer.getLocationOfCustomerWithId(customerId.get());
+        ReplaceCustomer.replaceCustomer(locationOfCustomer, customer);
     }
 
     @POST
